@@ -3,9 +3,11 @@ $(function(){
 	if (click < 1){
 		$('#centro').css('display', 'none');
 		$('#izquierda').css('display', 'none');
+		$('#pdf').css('display', 'none');
 	}
 	$('#fondo').click(function(){
 		$('#izquierda').fadeIn();
+		$('#pdf').fadeIn();
 		if (click <= 19){click++;}
 		if (click == 1){
 			$('#fondo_kiddi').addClass('fadeIn');
@@ -13,7 +15,7 @@ $(function(){
 		}
 		if (click == 2){
 			$('#botella-kiddi').addClass('fadeIn');
-			setTimeout( function() {$('#botella-kiddi').addClass('fadeIn_rotate_bote')}, 500);
+			setTimeout( function() {$('#botella-kiddi').addClass('fadeIn_rotate_bote')}, 50);
 		}
 		if (click == 3){$('#potencia-title').addClass('fadeIn');}	
 		if (click == 4){$('#potencia-parraf').addClass('fadeIn');}
@@ -22,7 +24,7 @@ $(function(){
 		if (click == 7){$('#crayon_3').addClass('fadeIn');}
 		if (click == 8){
 			$('#porcentaje').addClass('fadeIn');
-			setTimeout( function() {$('#porcentaje').addClass('fadeIn_rotate_porc')}, 500);
+			setTimeout( function() {$('#porcentaje').addClass('fadeIn_rotate_porc')}, 50);
 		}
 		if (click == 9){$('#logo_kiddi').addClass('fadeIn');}
 		if (click == 10){$('#texto_exig').addClass('fadeIn');}
@@ -38,6 +40,7 @@ $(function(){
 	});
 	$('#derecha').click(function(){
 		$('#izquierda').fadeIn();
+		$('#pdf').fadeIn();
 		if (click <= 19){click++;}
 		if (click == 1){
 			$('#fondo_kiddi').addClass('fadeIn');
@@ -45,7 +48,7 @@ $(function(){
 		}
 		if (click == 2){
 			$('#botella-kiddi').addClass('fadeIn');
-			setTimeout( function() {$('#botella-kiddi').addClass('fadeIn_rotate_bote')}, 500);
+			setTimeout( function() {$('#botella-kiddi').addClass('fadeIn_rotate_bote')}, 50);
 		}
 		if (click == 3){$('#potencia-title').addClass('fadeIn');}	
 		if (click == 4){$('#potencia-parraf').addClass('fadeIn');}
@@ -54,7 +57,7 @@ $(function(){
 		if (click == 7){$('#crayon_3').addClass('fadeIn');}
 		if (click == 8){
 			$('#porcentaje').addClass('fadeIn');
-			setTimeout( function() {$('#porcentaje').addClass('fadeIn_rotate_porc')}, 500);
+			setTimeout( function() {$('#porcentaje').addClass('fadeIn_rotate_porc')}, 50);
 		}
 		if (click == 9){$('#logo_kiddi').addClass('fadeIn');}
 		if (click == 10){$('#texto_exig').addClass('fadeIn');}
@@ -69,14 +72,15 @@ $(function(){
 		if (click == 19){$('#centro').fadeIn();}
 	});
 	$('#izquierda').click(function(){
-		if (click == 0){$('#izquierda').fadeOut();}
 		if (click == 1){
+			$('#pdf').fadeOut();
+			$('#izquierda').fadeOut();
 			$('#fondo_kiddi').removeClass('fadeIn');
 			$('#fondo_vital').removeClass('fadeIn');
 		}
 		if (click == 2){
 			$('#botella-kiddi').removeClass('fadeIn_rotate_bote');
-			setTimeout( function() {$('#botella-kiddi').removeClass('fadeIn');}, 2100);
+			setTimeout( function() {$('#botella-kiddi').removeClass('fadeIn');}, 1100);
 		}
 		if (click == 3){$('#potencia-title').removeClass('fadeIn');}	
 		if (click == 4){$('#potencia-parraf').removeClass('fadeIn');}
@@ -85,7 +89,7 @@ $(function(){
 		if (click == 7){$('#crayon_3').removeClass('fadeIn');}
 		if (click == 8){
 			$('#porcentaje').removeClass('fadeIn_rotate_porc');
-			setTimeout( function() {$('#porcentaje').removeClass('fadeIn');}, 2100);
+			setTimeout( function() {$('#porcentaje').removeClass('fadeIn');}, 1100);
 		}
 		if (click == 9){$('#logo_kiddi').removeClass('fadeIn');}
 		if (click == 10){$('#texto_exig').removeClass('fadeIn');}
@@ -160,6 +164,7 @@ $(function(){
 																					$('#fondo_vital').removeClass('fadeIn');
 																					click--;
 																					if (click == 0){
+																						$('#pdf').fadeOut();
 																						$('#izquierda').fadeOut();
 																						click--;
 																					}
@@ -183,4 +188,18 @@ $(function(){
 			}
 		}						
 	});
+
+	$('#pdf').click(function(){
+		Modal();
+	});
 });
+
+function Modal(){
+    var modal = document.getElementById('myModal_preguntaNew');
+    modal.style.display = "block";
+    var span = document.getElementsByClassName("close_pregunta")[0];
+    span.onclick = function() {modal.style.display = "none";}
+    window.onclick = function(event) {
+        if (event.target == modal) { modal.style.display = "none"; }
+    }
+}
